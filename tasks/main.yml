@@ -1,2 +1,13 @@
 ---
 # tasks file for anaconda
+
+- name: check if already installed
+  stat: path={{ anaconda_home }}/bin/conda
+  register: bin_conda
+  changed_when: bin_conda.stat.exists == False
+
+- include: install.yml
+  when: bin_conda.stat.exists == False
+
+- name: remove anaconda installer
+  file: name=/tmp/anaconda{{ anaconda_version }}.sh state=absent
