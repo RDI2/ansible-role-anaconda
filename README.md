@@ -24,14 +24,14 @@ Download Role
 For examples:
 
 ```bash
-ansible-galaxy install rdi2sys.anaconda
-ansible-galaxy install -p roles/ rdi2sys.anaconda
+ansible-galaxy install RDI2.anaconda
+ansible-galaxy install -p roles/ RDI2.anaconda
 ```
 
 Also, if you have ansible role file, you can add this role like this:
 
 ```bash
-- src: rdi2sys.anaconda
+- src: RDI2.anaconda
 ```
 
 Example Playbook
@@ -39,7 +39,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: rdi2sys.anaconda }
+         - { role: RDI2.anaconda }
 
 License
 -------
