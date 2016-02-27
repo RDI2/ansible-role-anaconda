@@ -2,5 +2,4 @@
 # handlers file for anaconda
 
 - name: update conda to latest version
-  sudo: yes
   shell: "{{ anaconda_home }}/bin/conda update conda --yes -q executable=/bin/bash"

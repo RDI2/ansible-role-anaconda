@@ -2,15 +2,18 @@
 # tasks file for anaconda/install
 
 - name: download anaconda installer
-  sudo: no
-  get_url: url={{ anaconda_download_url }} dest=/tmp/anaconda{{ anaconda_version }}.sh mode=0755
+  get_url:
+    url: "{{ anaconda_download_url }}"
+    dest: /tmp/anaconda{{ anaconda_version }}.sh
+    mode: 0755
 
 - name: create anaconda installation directory
-  sudo: yes
   file: path=/opt/anaconda state=directory
 
 - name: install anaconda
-  sudo: yes
-  shell: "/tmp/anaconda{{ anaconda_version }}.sh -b -p {{ anaconda_home }} creates={{ anaconda_home }} executable=/bin/bash"
+  shell: /tmp/anaconda{{ anaconda_version }}.sh -b -p {{ anaconda_home }}
+  args:
+    creates: "{{ anaconda_home }}"
+    executable: /bin/bash
   notify:
     - update conda to latest version
