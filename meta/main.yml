@@ -6,9 +6,9 @@ galaxy_info:
   license: MIT
   min_ansible_version: 1.9
   platforms:
-  - name: CentOS
+  - name: EL
     versions:
-    - 6.7
+    - 6
   categories:
   - packaging
   - system
